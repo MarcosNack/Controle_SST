@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Ocorrência</title>
+    <style>
+        body {
+            background-color: lightsteelblue;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: 30px;
+            margin-left: 30%;
+            margin-right: 30%;
+
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            width: 100%;
+            position: relative;
+
+            
+        }
+        .form-group {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            width: 50%; /* Largura fixa para todas as labels */
+            padding-right: 10px;
+            padding-top: 5px;
+            text-align: right;
+        }
+        .form-group input,
+        .form-group select {
+            height: 30px;
+            flex: 1;
+            border-color: darkgray;
+            border-radius: 2px;
+            border-style: inset;
+
+        }
+        .form-group textarea {
+            margin-left: 120px;
+            resize: vertical;
+            height: 200px;
+            border-radius: 3px;
+            flex: 1;
+        }
+        input[type="submit"] {
+            margin-left: 160px; /* Para alinhar o botão com os campos */
+            padding-top: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 10px;
+            align-items: center;
+        }
+
+    </style>
+</head>
+<body>
+    <form action="/submit_ocorrencia" method="post">
+        <h1>Formulário de Ocorrência</h1>
+        <div class="form-group">
+            <label for="tipo_ocorrencia">Tipo de Ocorrência:</label>
+            <select class="combbox" name="tipo_ocorrencia" id="tipo_ocorrencia" required>
+                <option value="" disabled selected>Selecionar o Tipo de Ocorrência</option>
+                <option value="Acidente">Acidente</option>
+                <option value="Incidente">Incidente</option>
+                <option value="Acidente com Afastamento >15">Acidente com Afastamento >15</option>
+                <option value="Acidente com Afastamento <15">Acidente com Afastamento <15</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="unidade">Unidade:</label>
+            <select class="combbox" name="unidade" id="unidade" required>
+                <option value="" disabled selected>Selecionar a Unidade</option>
+                <option value="AUC">Araucária</option>
+                <option value="CTB">Curitibanos</option>
+                <option value="LAG">Lages</option>
+                <option value="BTN">Brasnorte</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="data_ocorrencia">Data da Ocorrência:</label>
+            <input class="txt_data" type="date" id="data_ocorrencia" name="data_ocorrencia" required><br><br>
+        </div>
+
+        <div class="form-group">       
+            <label for="mes_ocorrencia">Mês e Ano da Ocorrência:</label>
+            <select class="combbox" name="mes_ocorrencia" id="mes_ocorrencia" required>
+                <option value="" disabled selected>Selecionar o Mês</option>
+                <option value="Jan">Janeiro</option>
+                <option value="Fev">Fevereiro</option>
+                <option value="Mar">Março</option>
+                <option value="Abr">Abil</option>
+                <option value="Mai">Maio</option>
+                <option value="Jun">Junho</option>
+                <option value="Jul">Julho</option>
+                <option value="Ago">Agosto</option>
+                <option value="Set">Setembro</option>
+                <option value="Out">Outubro</option>
+                <option value="Nov">Novembro</option>
+                <option value="Dez">Dezembro</option>
+            </select>
+            
+            <select class="combbox" name="ano_ocorrencia" id="ano_ocorrencia" required>
+                <option value="" disabled selected>Selecionar o Ano</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+            </select><br><br>
+        </div> 
+        <div class="form-group"> 
+            <label for="turno_ocorrencia">Turno da Ocorrência:</label>
+            <select class="combbox" name="turno_ocorrencia" id="turno_ocorrencia" required>
+                <option value="" disabled selected>Selecionar o Turno</option>
+                <option value="ADM">ADM</option>
+                <option value="Manha">Manha</option>
+                <option value="Tarde">Tarde</option>
+                <option value="Noite">Noite</option>
+            </select>
+        </div>
+
+        <div class="form-group"> 
+            <label for="local_ocorrencia">Local da Ocorrência:</label>
+            <select class="combbox" name="local_ocorrencia" id="local_ocorrencia" required>
+                <option value="" disabled selected>Selecionar o Local</option>
+                <option value="Estacionamento">Estacionamento</option>
+                <option value="Produção">Produção</option>
+                <option value="Manutenção">Manutenção</option>
+                <option value="Logística">Logística</option>
+                <option value="Áreas Diversas">Áreas Diversas</option>
+            </select>
+        </div>
+
+        <div class="form-group"> 
+            <label for="setor_ocorrencia">Setor de quem sofreu a Ocorrência:</label>
+            <select class="combbox" name="setor_ocorrencia" id="setor_ocorrencia" required>
+                <option value="" disabled selected>Selecionar o Setor</option>
+                <option value="Portaria">Portaria</option>
+                <option value="RH">RH</option>
+                <option value="ADM">ADM</option>
+                <option value="Produção">Produção</option>
+                <option value="Qualidade">Qualidade</option>
+                <option value="SST">SST</option>
+                <option value="Almoxarifado">Almoxarifado</option>
+                <option value="Estoque">Estoque</option>
+                <option value="Logística">Logística</option>
+                <option value="Manutenção">Manutenção</option>
+            </select>
+        </div>
+        
+        <div class="form-group"> 
+            <label for="genero">Gênero:</label>
+            <select class="combbox" name="genero" id="genero" required>
+                <option value="" disabled selected>Selecionar o Genero</option>
+                <option value="F">Feminino</option>
+                <option value="M">Masculino</option>
+            </select>
+        </div>
+
+        <div class="form-group"> 
+            <label for="faixa_etaria">Faixa Etária:</label>
+            <select class="combbox" name="faixa_etaria" id="faixa_etaria" required>
+                <option value="" disabled selected>Selecionar o Faixa Etária</option>
+                <option value="0-18">0 a 18</option>
+                <option value="19-23">19 a 23</option>
+                <option value="24-28">24 a 28</option>
+                <option value="29-33">29 a 33</option>
+                <option value="34-38">34 a 38</option>
+                <option value="39-43">39 a 43</option>
+                <option value="43-48">43 a 48</option>
+                <option value="49-53">49 a 53</option>
+                <option value=">53">>53</option>
+            </select>
+        </div>
+
+        <div class="form-group"> 
+            <label for="relato_ocorrencia">Relato da Ocorrência:</label><br>
+        </div>
+        <div class="form-group">
+            <textarea class="txt_relato" id="relato_ocorrencia" name="relato_ocorrencia" rows="4" cols="50" required></textarea>
+        </div>
+        <div>
+            <input type="submit" value="Enviar">
+        </div>
+    </form>
+    <script>
+        // Função para ordenar as opções do select
+        function sortSelectOptions(selectElement) {
+            let options = Array.from(selectElement.options); // Converte as opções para um array
+            options.sort(function(a, b) {
+                // Ignora a primeira opção (Selecionar Mês) durante a ordenação
+                if (a.value === "" || b.value === "") return 0;
+                return a.text.localeCompare(b.text, 'pt', {ignorePunctuation: true});
+            });
+
+            // Remove todas as opções e reinsere na ordem correta
+            selectElement.innerHTML = '';
+            options.forEach(option => selectElement.add(option));
+        }
+
+        // Ordenar as opções automaticamente ao carregar a página
+        document.addEventListener('DOMContentLoaded', function() {
+            let mesSelect = document.getElementById('local_ocorrencia');
+            sortSelectOptions(mesSelect);
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            let mesSelect = document.getElementById('setor_ocorrencia');
+            sortSelectOptions(mesSelect);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio Marcos Henrique Nack Camargo</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+</head>
+<body class="fundo-imagem"> 
+    <header>
+        <section class="linha">
+            <section style="display: flex; flex-direction: column; justify-content: space-around; gap: 10px;">
+                <section class="form-sep">
+                    <div class="tp-ocor">
+                        <h3>TIPOS DE OCORRÊNCIAS</h3>
+                        <div class="button-container">
+                            <button>2</button>
+                            <button>2</button>
+                            <button>2</button>
+                            <button>2</button>
+                        </div>
+                    </div>
+                    <section class="qtde-ocor">
+                        <div class="qtde-ocor-div">
+                            <h3>QTDE DE OCORRÊNCIAS POR TURNOS</h3>  
+                            <div>
+                                <img src="" alt="">
+                                <label for="">Dia</label>
+                                <button>2</button>
+                                <button>2</button>
+                            </div>      
+                        </div>
+                        <div class="qtde-ocor-div">
+                            <h3>QTDE DE OCORRÊNCIAS POR GENERO</h3>
+                            <div>
+                                <button>2</button>
+                                <button>2</button>
+                            </div>
+                        </div>
+                    </section>            
+                </section>
+                <div>
+                    <div id="gr_est" class="grafic-bar"></div>                    
+                </div>
+            </section>
+
+            <section class="form-sep-gr">
+                <div id="gr_crit" class="grafic-pie"></div>
+                <div id="gr_crit2" class="grafic-pie"></div>
+            </section>
+        </section>
+        
+    </header>
+    <script>
+        //Recebe os dados do gráfico a partir do Flask
+        var gr_estData = {{ gr_estJSON | safe }};
+        // Renderiza o gráfico usando o Ploty
+        Plotly.react('gr_est', gr_estData.data, gr_estData.layout);
+
+        //Recebe os dados do gráfico a partir do Flask
+        var gr_critData = {{ gr_critJSON | safe }};
+        // Renderiza o gráfico usando o Ploty
+        Plotly.react('gr_crit', gr_critData.data, gr_critData.layout);
+        //Recebe os dados do gráfico a partir do Flask
+        var gr_critData = {{ gr_critJSON | safe }};
+        // Renderiza o gráfico usando o Ploty
+        Plotly.react('gr_crit2', gr_critData.data, gr_critData.layout);
+        
+
+    </script>
+</body>
+</html>
